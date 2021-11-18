@@ -5,7 +5,8 @@ class GoogleSignIn::AuthorizationsController < GoogleSignIn::BaseController
 
   def create
     redirect_to login_url(scope: 'openid profile email', state: state),
-      flash: { proceed_to: params.require(:proceed_to), state: state }
+      flash: { proceed_to: params.require(:proceed_to), state: state },
+      allow_other_host: true
   end
 
   private
